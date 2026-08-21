@@ -1,0 +1,178 @@
+.checkout-page {
+    min-height: 85vh;
+    padding: 60px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #fffaf5;
+}
+
+.checkout-card {
+    width: min(600px, 100%);
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 24px;
+
+    border: 1px solid #eee2d9;
+
+    box-shadow:
+        0 15px 40px
+        rgba(74, 46, 27, 0.08);
+}
+
+.checkout-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.checkout-header span {
+    color: #e85d2a;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.checkout-header h1 {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 42px;
+
+    margin: 8px 0;
+}
+
+.checkout-header p {
+    color: #81756d;
+}
+
+.checkout-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkout-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px;
+
+    background: #fffaf5;
+
+    border-radius: 14px;
+}
+
+.checkout-item h3 {
+    margin: 0 0 5px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+}
+
+.checkout-item p {
+    margin: 0;
+
+    color: #81756d;
+
+    font-size: 13px;
+}
+
+.checkout-item strong {
+    color: #e85d2a;
+}
+
+.checkout-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 25px 0;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid #eee2d9;
+
+    font-size: 19px;
+}
+
+.checkout-total strong {
+    color: #e85d2a;
+
+    font-size: 26px;
+}
+
+.pay-button {
+    width: 100%;
+
+    border: none;
+
+    background: #e85d2a;
+
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 999px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.pay-button:hover {
+    background: #d85322;
+}
+
+.pay-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+.checkout-note {
+    text-align: center;
+
+    color: #8d8178;
+
+    font-size: 12px;
+
+    margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+    .checkout-page {
+        padding: 30px 15px;
+    }
+
+    .checkout-card {
+        padding: 25px 20px;
+    }
+
+    .checkout-header h1 {
+        font-size: 34px;
+    }
+
+    .checkout-item {
+        gap: 10px;
+    }
+}

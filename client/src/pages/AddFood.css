@@ -1,0 +1,194 @@
+.add-food-page {
+    min-height: 90vh;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #fffaf5;
+}
+
+.add-food-card {
+    width: min(700px, 100%);
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    border: 1px solid #eee2d9;
+    box-shadow: 0 20px 50px rgba(
+        74,
+        46,
+        27,
+        0.08
+    );
+}
+
+.add-food-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.add-food-header > span {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: #fff0e5;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+}
+
+.add-food-header p {
+    color: #e85d2a;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.add-food-header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    margin-top: 3px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #ded4cd;
+    border-radius: 10px;
+    outline: none;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #e85d2a;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.image-upload {
+    position: relative;
+    height: 250px;
+    border: 2px dashed #e5d8cf;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fffaf5;
+}
+
+.image-upload input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.image-upload img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #81756d;
+}
+
+.upload-placeholder span {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.checkbox-row {
+    display: flex;
+    gap: 25px;
+    margin: 10px 0 25px;
+}
+
+.checkbox-row label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.checkbox-row input {
+    width: 17px;
+    height: 17px;
+    accent-color: #e85d2a;
+}
+
+.add-food-button {
+    width: 100%;
+    border: none;
+    background: #e85d2a;
+    color: white;
+    padding: 15px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-food-button:hover {
+    background: #d85322;
+}
+
+.add-food-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+
+    .add-food-page {
+        padding: 35px 15px;
+    }
+
+    .add-food-card {
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .add-food-header h1 {
+        font-size: 27px;
+    }
+
+    .checkbox-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

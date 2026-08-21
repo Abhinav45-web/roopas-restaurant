@@ -1,0 +1,133 @@
+.review-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #eee2d9;
+    border-radius: 22px;
+}
+
+.review-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.review-heading h2 {
+    font-family: "Playfair Display", serif;
+    margin: 0;
+}
+
+.review-heading span {
+    color: #81756d;
+    font-size: 14px;
+}
+
+.review-form {
+    padding: 20px;
+    background: #fffaf5;
+    border-radius: 16px;
+    margin-bottom: 25px;
+}
+
+.review-form h3 {
+    margin-top: 0;
+}
+
+.star-selector {
+    display: flex;
+    gap: 5px;
+    margin: 12px 0;
+}
+
+.star {
+    background: transparent;
+    border: none;
+    color: #d8cec7;
+    font-size: 28px;
+    padding: 0;
+}
+
+.star.active {
+    color: #f5a623;
+}
+
+.review-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #ddd2ca;
+    border-radius: 12px;
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.review-submit {
+    margin-top: 12px;
+    border: none;
+    background: #e85d2a;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.review-submit:disabled {
+    opacity: 0.6;
+}
+
+.review-card {
+    border-top: 1px solid #eee2d9;
+    padding: 18px 0;
+}
+
+.review-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.review-top h4 {
+    margin: 0 0 5px;
+}
+
+.review-stars {
+    color: #f5a623;
+    letter-spacing: 2px;
+}
+
+.review-stars span {
+    color: #d8cec7;
+}
+
+.review-card p {
+    color: #5f5752;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.delete-review {
+    border: none;
+    background: transparent;
+    color: #d84635;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .review-section {
+        padding: 18px;
+    }
+
+    .review-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .review-top {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

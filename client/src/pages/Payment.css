@@ -1,0 +1,33 @@
+.payment-container {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-card {
+    width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.payment-card h1 {
+    margin-bottom: 20px;
+}
+
+.payment-card label {
+    display: block;
+    margin: 15px 0;
+}
+
+.payment-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff6b35;
+    color: white;
+    cursor: pointer;
+}
