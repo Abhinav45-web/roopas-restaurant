@@ -29,8 +29,6 @@ function Checkout() {
 
             const token = localStorage.getItem("token");
 
-            console.log("CHECKOUT TOKEN:", token);
-
             if (!token) {
                 navigate("/login");
                 return;
