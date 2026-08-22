@@ -27,7 +27,9 @@ function Register() {
     const [loading, setLoading] =
         useState(false);
 
-    const handleChange = (e) => {
+    const handleChange = (
+        e
+    ) => {
         const {
             name,
             value,
@@ -41,155 +43,154 @@ function Register() {
         );
     };
 
-    const handleSubmit = async (
-        e
-    ) => {
-        e.preventDefault();
+    const handleSubmit =
+        async (e) => {
+            e.preventDefault();
 
-        const name =
-            formData.name.trim();
+            const name =
+                formData.name.trim();
 
-        const email =
-            formData.email
-                .trim()
-                .toLowerCase();
+            const email =
+                formData.email
+                    .trim()
+                    .toLowerCase();
 
-        const password =
-            formData.password;
+            const password =
+                formData.password;
 
-        if (
-            !name ||
-            !email ||
-            !password
-        ) {
-            alert(
-                "Please fill all fields."
-            );
-            return;
-        }
-
-        if (password.length < 6) {
-            alert(
-                "Password must be at least 6 characters."
-            );
-            return;
-        }
-
-        try {
-            setLoading(true);
-
-            console.log(
-                "REGISTER API:",
-                `${API_URL}/auth/register`
-            );
-
-            const response =
-                await axios.post(
-                    `${API_URL}/auth/register`,
-                    {
-                        name,
-                        email,
-                        password,
-                    }
+            if (
+                !name ||
+                !email ||
+                !password
+            ) {
+                alert(
+                    "Please fill all fields."
                 );
 
-            const data =
-                response.data;
-
-            console.log(
-                "REGISTER RESPONSE:",
-                data
-            );
-
-            if (!data.success) {
-                throw new Error(
-                    data.message ||
-                        "Registration failed."
-                );
+                return;
             }
 
-            // ==========================================
-            // SAVE AUTH DATA
-            // ==========================================
+            if (
+                password.length < 6
+            ) {
+                alert(
+                    "Password must be at least 6 characters."
+                );
 
-            localStorage.setItem(
-                "token",
-                data.token
-            );
+                return;
+            }
 
-            localStorage.setItem(
-                "userName",
-                data.user?.name ||
-                    name
-            );
+            try {
+                setLoading(true);
 
-            localStorage.setItem(
-                "userEmail",
-                data.user?.email ||
-                    email
-            );
+                console.log(
+                    "REGISTER API:",
+                    `${API_URL}/auth/register`
+                );
 
-            localStorage.setItem(
-                "userRole",
-                data.user?.role ||
-                    "user"
-            );
+                const response =
+                    await axios.post(
+                        `${API_URL}/auth/register`,
+                        {
+                            name,
+                            email,
+                            password,
+                        }
+                    );
 
-            // ==========================================
-            // UPDATE NAVBAR
-            // ==========================================
+                const data =
+                    response.data;
 
-            window.dispatchEvent(
-                new Event(
-                    "authChanged"
-                )
-            );
+                if (
+                    !data.success
+                ) {
+                    throw new Error(
+                        data.message ||
+                            "Registration failed."
+                    );
+                }
 
-            alert(
-                "🎉 Registration successful!"
-            );
+                localStorage.setItem(
+                    "token",
+                    data.token
+                );
 
-            navigate("/");
-        } catch (error) {
-            console.error(
-                "REGISTER ERROR:",
+                localStorage.setItem(
+                    "userName",
+                    data.user?.name ||
+                        name
+                );
+
+                localStorage.setItem(
+                    "userEmail",
+                    data.user?.email ||
+                        email
+                );
+
+                localStorage.setItem(
+                    "userRole",
+                    data.user?.role ||
+                        "user"
+                );
+
+                window.dispatchEvent(
+                    new Event(
+                        "authChanged"
+                    )
+                );
+
+                alert(
+                    "🎉 Registration successful!"
+                );
+
+                navigate(
+                    "/"
+                );
+            } catch (
                 error
-            );
+            ) {
+                console.error(
+                    "REGISTER ERROR:",
+                    error
+                );
 
-            console.error(
-                "REGISTER STATUS:",
-                error.response
-                    ?.status
-            );
+                console.error(
+                    "REGISTER URL:",
+                    `${API_URL}/auth/register`
+                );
 
-            console.error(
-                "REGISTER DATA:",
-                error.response
-                    ?.data
-            );
+                console.error(
+                    "STATUS:",
+                    error.response
+                        ?.status
+                );
 
-            console.error(
-                "REGISTER URL:",
-                `${API_URL}/auth/register`
-            );
+                console.error(
+                    "DATA:",
+                    error.response
+                        ?.data
+                );
 
-            alert(
-                error.response?.data
-                    ?.message ||
-                    error.message ||
-                    "Registration failed."
-            );
-        } finally {
-            setLoading(false);
-        }
-    };
+                alert(
+                    error.response?.data
+                        ?.message ||
+                        error.message ||
+                        "Registration failed."
+                );
+            } finally {
+                setLoading(
+                    false
+                );
+            }
+        };
 
     return (
         <div className="auth-page">
             <div className="auth-card">
 
                 <span className="eyebrow">
-                    JOIN ROOPA'S RESTAURANT
+                    JOIN ROOPA'S
+                    RESTAURANT
                 </span>
 
                 <h1>
@@ -201,7 +202,6 @@ function Register() {
                         handleSubmit
                     }
                 >
-
                     <label htmlFor="name">
                         Name
                     </label>
@@ -219,7 +219,6 @@ function Register() {
                         placeholder="Enter your name"
                         autoComplete="name"
                     />
-
 
                     <label htmlFor="email">
                         Email
@@ -239,7 +238,6 @@ function Register() {
                         autoComplete="email"
                     />
 
-
                     <label htmlFor="password">
                         Password
                     </label>
@@ -258,7 +256,6 @@ function Register() {
                         autoComplete="new-password"
                     />
 
-
                     <button
                         type="submit"
                         disabled={
@@ -269,11 +266,11 @@ function Register() {
                             ? "Creating Account..."
                             : "Register"}
                     </button>
-
                 </form>
 
                 <p>
-                    Already have an account?{" "}
+                    Already have an
+                    account?{" "}
                     <Link to="/login">
                         Login
                     </Link>

@@ -1,56 +1,75 @@
 import axios from "axios";
+import { API_URL } from "./api";
 
-const API_URL =
-    "http://localhost:5000/api/payment";
 
-export const createPaymentOrder = async (
-    token
-) => {
-    const response = await axios.post(
-        `${API_URL}/create`,
-        {},
-        {
-            headers: {
-                Authorization:
-                    `Bearer ${token}`,
-            },
-        }
-    );
+// ==========================================
+// CREATE RAZORPAY ORDER
+// ==========================================
 
-    return response.data;
-};
+export const createPaymentOrder =
+    async (
+        token
+    ) => {
+        const response =
+            await axios.post(
+                `${API_URL}/payment/create`,
+                {},
+                {
+                    headers: {
+                        Authorization:
+                            `Bearer ${token}`,
+                    },
+                }
+            );
 
-export const verifyPayment = async (
-    paymentData,
-    token
-) => {
-    const response = await axios.post(
-        `${API_URL}/verify`,
+        return response.data;
+    };
+
+
+// ==========================================
+// VERIFY PAYMENT
+// ==========================================
+
+export const verifyPayment =
+    async (
         paymentData,
-        {
-            headers: {
-                Authorization:
-                    `Bearer ${token}`,
-            },
-        }
-    );
+        token
+    ) => {
+        const response =
+            await axios.post(
+                `${API_URL}/payment/verify`,
+                paymentData,
+                {
+                    headers: {
+                        Authorization:
+                            `Bearer ${token}`,
+                    },
+                }
+            );
 
-    return response.data;
-};
+        return response.data;
+    };
 
-export const createDemoOrder = async (
-    token
-) => {
-    const response = await axios.post(
-        `${API_URL}/demo`,
-        {},
-        {
-            headers: {
-                Authorization:
-                    `Bearer ${token}`,
-            },
-        }
-    );
 
-    return response.data;
-};
+// ==========================================
+// FREE DEMO ORDER
+// ==========================================
+
+export const createDemoOrder =
+    async (
+        token
+    ) => {
+        const response =
+            await axios.post(
+                `${API_URL}/payment/demo`,
+                {},
+                {
+                    headers: {
+                        Authorization:
+                            `Bearer ${token}`,
+                    },
+                }
+            );
+
+        return response.data;
+    };
